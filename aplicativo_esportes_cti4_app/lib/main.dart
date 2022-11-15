@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'us_widgets/all_widgets.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(
