@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
       children: [
         TextField(
           decoration: InputDecoration(
-            labelText: "Usuario"
+              labelText: "Usuario"
           ),
           controller: usuario,
         ),
@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
         ),
         TextField(
           decoration: InputDecoration(
-              labelText: "Senha",
+            labelText: "Senha",
           ),
           controller: senhaUsuario,
         ),

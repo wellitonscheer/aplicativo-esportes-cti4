@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "439951365812",
+    "project_id": "aplicativo-esportes-cti4",
+    "storage_bucket": "aplicativo-esportes-cti4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439951365812:android:bbb56705dd76a5dc0c29e1",
+        "android_client_info": {
+          "package_name": "com.example.aplicativo_esportes_cti4_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439951365812-hnm65gm5q8ml4dc7kr129b75u1jp16to.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aplicativo_esportes_cti4_app",
+            "certificate_hash": "79a5562b5d7193e13760632a8bcd91250c80b2f7"
+          }
+        },
+        {
+          "client_id": "439951365812-880ht7u5vc61b23569gfdotk8hpdda6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCVP1m_qCe6ro57Ru2KuNVvlFvlUGwaHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439951365812-880ht7u5vc61b23569gfdotk8hpdda6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
