@@ -20,45 +20,50 @@ class _CadastroState extends State<Cadastro> {
 
   void _cadastroUsuario() async{
     var montaTexto = {"usuario":usuario.text, "nomeUsuario":nomeUsuario.text, "emailUsuario":emailUsuario.text, "senhaUsuario":senhaUsuario.text};
-    //FirebaseFirestore.instance.collection("usuarios").doc(nomeUsuario.text).set(montaTexto);
+    FirebaseFirestore.instance.collection("usuarios").doc(nomeUsuario.text).set(montaTexto);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          decoration: InputDecoration(
-              labelText: "Usuario"
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Cadastro"),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+                labelText: "Usuario"
+            ),
+            controller: usuario,
           ),
-          controller: usuario,
-        ),
-        TextField(
-          decoration: InputDecoration(
-              labelText: "Nome"
+          TextField(
+            decoration: InputDecoration(
+                labelText: "Nome"
+            ),
+            controller: nomeUsuario,
           ),
-          controller: nomeUsuario,
-        ),
-        TextField(
-          decoration: InputDecoration(
-              labelText: "Email"
+          TextField(
+            decoration: InputDecoration(
+                labelText: "Email"
+            ),
+            controller: emailUsuario,
           ),
-          controller: emailUsuario,
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: "Senha",
+          TextField(
+            decoration: InputDecoration(
+              labelText: "Senha",
+            ),
+            controller: senhaUsuario,
           ),
-          controller: senhaUsuario,
-        ),
-        ElevatedButton(
-            onPressed: (){
-              _cadastroUsuario();
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-            },
-            child: Text("Cadastrar")
-        )
-      ],
+          ElevatedButton(
+              onPressed: (){
+                _cadastroUsuario();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+              },
+              child: Text("Cadastrar")
+          )
+        ],
+      ),
     );
   }
 }

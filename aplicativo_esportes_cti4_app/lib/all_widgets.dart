@@ -1,3 +1,9 @@
 export 'Login.dart';
 export 'Cadastro.dart';
 export 'Todos.dart';
+export 'rpg/PrincipalRpg.dart';
+export 'padel/PrincipalPadel.dart';
+export 'eletronicos/PrincipalEletronicos.dart';
+export 'futebol/PrincipalFutebol.dart';
+export 'olimpicos/PrincipalOlimpicos.dart';
+export 'tabuleiro/PrincipalTabuleiro.dart';

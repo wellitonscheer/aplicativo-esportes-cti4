@@ -14,7 +14,6 @@ class _LoginState extends State<Login> {
 
   TextEditingController usuario = TextEditingController();
   TextEditingController senhaUsuario = TextEditingController();
-  var retorno = "";
 
   @override
   Widget build(BuildContext context) {
@@ -22,46 +21,64 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                  labelText: "Usuario"
-              ),
-              controller: usuario,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  labelText: "Senha"
-              ),
-              controller: senhaUsuario,
-            ),
-            ElevatedButton(
-                onPressed: (){
-                  Entrar();
-                },
-                child: Text("aa")
-            ),
-            Text(retorno),
-          ],
-        ),
+      body: Center(
+          child: Column(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                      labelText: "Usuario"
+                  ),
+                  controller: usuario,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                      labelText: "Senha"
+                  ),
+                  controller: senhaUsuario,
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      Entrar();
+                    },
+                    child: Text("Entrar")
+                ),
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
+                    },
+                    child: Text("Se Cadastrar")
+                )
+              ]
+          )
       ),
     );
   }
   void Entrar() {
      FirebaseFirestore.instance.collection('usuarios').get().then((value) {
        //String usuario = value.docs[0].get("usuario");
-       var dado = "";
+       var senhaBanco = "";
+       var senhaFild = senhaUsuario.text;
+       var usuarioFild = usuario.text;
        value.docs.forEach((element) {
-         if(element["usuario"] == usuario.text){
-           dado = element["senhaUsuario"];
+         if(element["usuario"] == usuarioFild){
+           senhaBanco = element["senhaUsuario"];
+           return;
          }
        });
-       setState(() {
-         retorno = dado;
-       });
+       if(senhaFild == ""){
+         showDialog<void>(
+             context: context,
+             builder: (BuildContext context){
+               return AlertDialog(
+                 title: Text("Erro ao Logar"),
+                 content: Text("Verifique a sua usuario e senha e tente novamente"),
+               );
+             }
+         );
+       }
+       else{
+         Navigator.push(context, MaterialPageRoute(builder: (context) => Todos()));
+       }
      });
   }
 }

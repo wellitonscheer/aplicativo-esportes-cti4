@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-class Principal extends StatefulWidget {
-  const Principal({Key? key}) : super(key: key);
+class PrincipalOlimpicos extends StatefulWidget {
+  const PrincipalOlimpicos({Key? key}) : super(key: key);
 
   @override
-  State<Principal> createState() => _PrincipalState();
+  State<PrincipalOlimpicos> createState() => _PrincipalOlimpicosState();
 }
 
-class _PrincipalState extends State<Principal> {
+class _PrincipalOlimpicosState extends State<PrincipalOlimpicos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Padel"),
+        title: Text("Olimpicos"),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Padel bla, bla, bla")
+            Text("Olimpicos bla, bla, bla")
           ],
         ),
       ),

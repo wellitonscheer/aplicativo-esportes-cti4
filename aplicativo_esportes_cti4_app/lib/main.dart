@@ -34,7 +34,11 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Cadastro()
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                },
+                child: Text("Entrar"))
           ],
         ),
       ),
