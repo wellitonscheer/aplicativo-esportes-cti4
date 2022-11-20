@@ -1,4 +1,4 @@
-import 'us_widgets/all_widgets.dart';
+import 'all_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -6,8 +6,6 @@ void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // comando de teste para gravar no banco
-  // FirebaseFirestore.instance.collection("clientes").doc().set({"nomeCliente":"Funcionou em casa","emailCliente":"funcionouemcasa@teste2.com.br"});
 
   runApp(
     MaterialApp(
@@ -36,7 +34,7 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Login()
+            Cadastro()
           ],
         ),
       ),

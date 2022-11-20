@@ -3,19 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-}
 
-class Login extends StatefulWidget{
-  const Login({Key? key}) : super(key: key);
+class Cadastro extends StatefulWidget{
+  const Cadastro({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Cadastro> createState() => _CadastroState();
 }
 
-class _LoginState extends State<Login> {
+class _CadastroState extends State<Cadastro> {
 
   TextEditingController usuario = TextEditingController();
   TextEditingController nomeUsuario = TextEditingController();
@@ -24,7 +20,7 @@ class _LoginState extends State<Login> {
 
   void _cadastroUsuario() async{
     var montaTexto = {"usuario":usuario.text, "nomeUsuario":nomeUsuario.text, "emailUsuario":emailUsuario.text, "senhaUsuario":senhaUsuario.text};
-    FirebaseFirestore.instance.collection("usuarios").doc().set(montaTexto);
+    //FirebaseFirestore.instance.collection("usuarios").doc(nomeUsuario.text).set(montaTexto);
   }
 
   @override
@@ -56,7 +52,10 @@ class _LoginState extends State<Login> {
           controller: senhaUsuario,
         ),
         ElevatedButton(
-            onPressed: _cadastroUsuario,
+            onPressed: (){
+              _cadastroUsuario();
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+            },
             child: Text("Cadastrar")
         )
       ],
