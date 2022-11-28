@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'allMyWidgets.dart';
 
 class PrincipalRpg extends StatefulWidget {
   const PrincipalRpg({Key? key}) : super(key: key);
@@ -9,6 +10,9 @@ class PrincipalRpg extends StatefulWidget {
 }
 
 class _PrincipalRpgState extends State<PrincipalRpg> {
+
+  TextEditingController attForca = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +22,24 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("RPG bla, bla, bla")
+            Container(
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black12)
+              ),
+              child: TextField(
+                controller: attForca,
+                onTapOutside: (event) {
+                  FocusScope.of(context).unfocus();
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Forcas',
+                ),
+              ),
+            ),
+            Atributos(),
           ],
         ),
       ),
