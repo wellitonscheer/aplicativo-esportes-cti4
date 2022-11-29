@@ -20,6 +20,7 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
         title: Text("RPG"),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(15),
         child: Column(
           children: [
             Container(
@@ -39,7 +40,8 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
                 ),
               ),
             ),
-            Atributos(),
+            Atributos("dasdasd"),
+            Atributos("destreza")
           ],
         ),
       ),

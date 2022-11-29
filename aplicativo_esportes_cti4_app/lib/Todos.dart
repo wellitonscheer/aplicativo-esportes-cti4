@@ -43,7 +43,7 @@ class _TodosState extends State<Todos> {
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => PrincipalFutebol()));
                   },
-                  child: Text("Futebol")
+                  child: Text("Copa do Mundo")
               ),
               ElevatedButton(
                   onPressed: (){
