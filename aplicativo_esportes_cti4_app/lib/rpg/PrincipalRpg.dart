@@ -40,8 +40,9 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
                 ),
               ),
             ),
-            Atributos("dasdasd"),
-            Atributos("destreza")
+            Atributos("forca"),
+            Atributos("destreza"),
+            Atributos("constituicao")
           ],
         ),
       ),
