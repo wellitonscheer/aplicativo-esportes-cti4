@@ -12,6 +12,7 @@ class PrincipalRpg extends StatefulWidget {
 class _PrincipalRpgState extends State<PrincipalRpg> {
 
   TextEditingController attForca = TextEditingController();
+  TextEditingController nomePersonagem = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,23 +24,14 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black12)
-              ),
-              child: TextField(
-                controller: attForca,
-                onTapOutside: (event) {
-                  FocusScope.of(context).unfocus();
-                },
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Forcas',
-                ),
-              ),
+            Text("Nome do Personagem", style: TextStyle(fontSize: 25)),
+            TextField(
+              controller: nomePersonagem,
+              decoration: InputDecoration(
+                border: OutlineInputBorder()
+              )
             ),
+            DadosGerais(),
             Atributos("forca"),
             Atributos("destreza"),
             Atributos("constituicao")
