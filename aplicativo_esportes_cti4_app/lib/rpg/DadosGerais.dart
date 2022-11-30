@@ -12,6 +12,10 @@ class _DadosGeraisState extends State<DadosGerais> {
 
   TextEditingController classeENivel = TextEditingController();
   TextEditingController antecedentes = TextEditingController();
+  TextEditingController nomeJogador = TextEditingController();
+  TextEditingController raca = TextEditingController();
+  TextEditingController tendencia = TextEditingController();
+  TextEditingController experiencia = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,34 +45,34 @@ class _DadosGeraisState extends State<DadosGerais> {
             ),
           ),
           TextField(
-            controller: classeENivel,
+            controller: nomeJogador,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Classe e Nivel",
+                helperText: "Nome do Jogador",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
           TextField(
-            controller: classeENivel,
+            controller: raca,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Classe e Nivel",
+                helperText: "Raca",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
           TextField(
-            controller: classeENivel,
+            controller: tendencia,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Classe e Nivel",
+                helperText: "Tendencia",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
           TextField(
-            controller: classeENivel,
+            controller: experiencia,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Classe e Nivel",
+                helperText: "Experiencia",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),

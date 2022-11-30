@@ -14,6 +14,7 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
   TextEditingController attForca = TextEditingController();
   TextEditingController nomePersonagem = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,13 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
             DadosGerais(),
             Atributos("forca"),
             Atributos("destreza"),
-            Atributos("constituicao")
+            Atributos("constituicao"),
+            Atributos("inteligencia"),
+            Atributos("Sabedoria"),
+            Atributos("Carisma"),
+            CampoTexto("Persepcao"),
+            CampoTexto("Inspiracao"),
+            CampoTexto("Bonus Proficiencia")
           ],
         ),
       ),
