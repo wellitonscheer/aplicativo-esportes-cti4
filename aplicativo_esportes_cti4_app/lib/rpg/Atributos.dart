@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Atributos extends StatefulWidget {
-  String texto;
+  String titulo;
 
-  Atributos(this.texto);
+  Atributos(this.titulo);
 
   @override
   State<Atributos> createState() => _AtributosState();
@@ -12,7 +12,6 @@ class Atributos extends StatefulWidget {
 
 class _AtributosState extends State<Atributos> {
 
-  String titulo = "a";
   int _valor = 0;
   TextEditingController edit = TextEditingController(text: "0");
   TextEditingController modificador = TextEditingController();
@@ -20,6 +19,7 @@ class _AtributosState extends State<Atributos> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black12),
@@ -45,21 +45,22 @@ class _AtributosState extends State<Atributos> {
                 children: [
                   TextField(
                     textAlign: TextAlign.center,
+                    readOnly: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
-                      labelText: widget.texto,
+                      labelText: widget.titulo,
                     ),
                     controller: edit,
                     style: TextStyle(fontSize: 30),
                   ),
                   SizedBox(
-                    width: 50,
-                    height: 35,
+                    width: 60,
+                    height: 45,
                     child: TextField(
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
-                        labelText: widget.texto,
+                        //labelText: widget.titulo,
                       ),
                       controller: modificador,
                       style: TextStyle(fontSize: 30),
@@ -70,22 +71,17 @@ class _AtributosState extends State<Atributos> {
             )
           ),
           Expanded(
-            child: SizedBox(
-              height: 100,
-              width: 10,
-              child: ElevatedButton(
-                  style: ButtonStyle(
-                      //padding: MaterialStateProperty.all(EdgeInsets.all(5)),
-                      iconSize: MaterialStateProperty.all(40),
-
-                  ),
-                  onPressed: (){
-                    _valor++;
-                    edit.text = '$_valor';
-                  },
-                  child: Icon(Icons.expand_less)
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  iconSize: MaterialStateProperty.all(40),
+                  padding: MaterialStateProperty.all(EdgeInsets.all(5))
               ),
-            )
+              onPressed: (){
+                _valor++;
+                edit.text = '$_valor';
+              },
+              child: Icon(Icons.expand_less)
+            ),
           ),
         ],
       ),
