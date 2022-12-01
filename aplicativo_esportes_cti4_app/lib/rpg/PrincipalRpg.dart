@@ -23,16 +23,16 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
     return Scaffold(
       appBar: AppBar(
         title: Text("RPG"),
+        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            Image(
-              image: NetworkImage("https://i.pinimg.com/originals/48/cb/53/48cb5349f515f6e59edc2a4de294f439.png"),
-              height: 200,
-              width: 200,
-            ),
+            Container(
+                width: 200,
+                height: 200,
+                child: Image.asset('assets/dedLogo.png')),
             SizedBox(height: 20),
             Text("NOME DO PERSONAGEM", style: TextStyle(fontSize: 25)),
             TextField(

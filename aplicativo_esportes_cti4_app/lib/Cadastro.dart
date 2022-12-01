@@ -33,8 +33,9 @@ class _CadastroState extends State<Cadastro> {
         children: [
           TextField(
             decoration: InputDecoration(
-                labelText: "Usuario"
-            ),
+                border: OutlineInputBorder(),
+                labelText: 'Usuario',
+                hintText: 'Coloque o seu usuario'),
             controller: usuario,
           ),
           TextField(

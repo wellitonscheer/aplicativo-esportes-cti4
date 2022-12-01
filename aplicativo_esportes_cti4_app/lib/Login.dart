@@ -2,6 +2,8 @@ import 'all_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'Global.dart' as global;
+import 'package:nice_buttons/nice_buttons.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Logar"),
+        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -41,9 +44,9 @@ class _LoginState extends State<Login> {
               child: TextField(
                 controller: usuario,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Usuario',
-                    hintText: 'Coloque o seu usuario'),
+                  border: OutlineInputBorder(),
+                  labelText: 'Usuario',
+                  hintText: 'Coloque o seu usuario'),
               ),
             ),
             Padding(
@@ -64,29 +67,41 @@ class _LoginState extends State<Login> {
             Container(
               height: 50,
               width: 250,
-              decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-              child: ElevatedButton(
-                onPressed: () {
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              child: NiceButtons(
+                startColor: Colors.black,
+                endColor: Colors.black12,
+                borderColor: Colors.black,
+                stretch: false,
+                progress: false,
+                gradientOrientation: GradientOrientation.Horizontal,
+                onTap: (a) {
                   Entrar(usuario, senhaUsuario, context);
-                  // Navigator.push(
-                  //     context, MaterialPageRoute(builder: (_) => Todos()));
                 },
                 child: Text(
                   'Entrar',
-                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  //global.usuario,
+                  style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
-
               ),
+
             ),
+
             SizedBox(
               height: 10,
             ),
             TextButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
-                },
-                child: Text("Nao tem uma conta? Clique aqui.")
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith((states){
+                      Colors.black;
+                    }
+                    )
+                ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
+              },
+              child: Text("Nao tem uma conta? Clique aqui."),
+
             )
           ],
         ),
@@ -120,6 +135,7 @@ void Entrar(usuario, senha, context) {
       );
     }
     else {
+      global.usuario = usuario.text;
       Navigator.push(context, MaterialPageRoute(builder: (context) => Todos()));
     }
   });

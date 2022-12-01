@@ -35,6 +35,7 @@ dependencies:
   cloud_firestore: ^4.0.5
   firebase_auth: ^4.1.2
   firebase_storage: ^11.0.5
+  nice_buttons: ^0.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -69,6 +70,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/logoNosso.jpeg
+    - assets/dedLogo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

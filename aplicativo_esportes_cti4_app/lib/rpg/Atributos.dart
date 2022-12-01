@@ -27,19 +27,23 @@ class _AtributosState extends State<Atributos> {
       child: Row(
         children: <Widget>[
           Expanded(
-            child: ElevatedButton(
-              style: ButtonStyle(
-                iconSize: MaterialStateProperty.all(40),
-                padding: MaterialStateProperty.all(EdgeInsets.all(5))
+            child: SizedBox(
+              height: 120,
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                    iconSize: MaterialStateProperty.all(40),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(5)),
+                  ),
+                  onPressed: (){
+                    _valor--;
+                    edit.text = '$_valor';
+                  },
+                  child: Icon(Icons.expand_more)
               ),
-              onPressed: (){
-                _valor--;
-                edit.text = '$_valor';
-              },
-              child: Icon(Icons.expand_more)
             ),
           ),
           Expanded(
+              flex: 3,
             child: Container(
               child: Column(
                 children: [
@@ -59,7 +63,7 @@ class _AtributosState extends State<Atributos> {
                     child: TextField(
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(60))),
                         //labelText: widget.titulo,
                       ),
                       controller: modificador,
@@ -71,16 +75,19 @@ class _AtributosState extends State<Atributos> {
             )
           ),
           Expanded(
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  iconSize: MaterialStateProperty.all(40),
-                  padding: MaterialStateProperty.all(EdgeInsets.all(5))
+            child: SizedBox(
+              height: 120,
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                      iconSize: MaterialStateProperty.all(40),
+                      padding: MaterialStateProperty.all(EdgeInsets.all(5))
+                  ),
+                  onPressed: (){
+                    _valor++;
+                    edit.text = '$_valor';
+                  },
+                  child: Icon(Icons.expand_less)
               ),
-              onPressed: (){
-                _valor++;
-                edit.text = '$_valor';
-              },
-              child: Icon(Icons.expand_less)
             ),
           ),
         ],
