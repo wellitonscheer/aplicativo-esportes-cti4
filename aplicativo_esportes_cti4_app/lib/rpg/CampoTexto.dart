@@ -39,7 +39,7 @@ class _CampoTextoState extends State<CampoTexto> {
           Expanded(child:
           SizedBox(
               width: 30,
-              child: Text(widget.texto, style: TextStyle(fontSize: 25))
+              child: Text(widget.texto, style: TextStyle(fontSize: 23))
           )
           )
         ],

@@ -51,7 +51,7 @@ class _AtributosState extends State<Atributos> {
                       labelText: widget.titulo,
                     ),
                     controller: edit,
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 25),
                   ),
                   SizedBox(
                     width: 60,

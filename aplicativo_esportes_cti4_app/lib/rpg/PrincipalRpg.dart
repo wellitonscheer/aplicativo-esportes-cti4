@@ -33,15 +33,72 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
               )
             ),
             DadosGerais(),
-            Atributos("forca"),
-            Atributos("destreza"),
-            Atributos("constituicao"),
-            Atributos("inteligencia"),
-            Atributos("Sabedoria"),
-            Atributos("Carisma"),
-            CampoTexto("Persepcao"),
-            CampoTexto("Inspiracao"),
-            CampoTexto("Bonus Proficiencia")
+            Atributos("FORÇA"),
+            Atributos("DESTREZA"),
+            Atributos("CONSTITUIÇÃO"),
+            Atributos("INTELIGÊNCIA"),
+            Atributos("SABEDORIA"),
+            Atributos("CARISMA"),
+            CampoTexto("PERCEPÇÃO"),
+            CampoTexto("INSPIRAÇÃO"),
+            CampoTexto("BONUS DE PROFICIÊNCIA"),
+            Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  Proficiencia("Força"),
+                  Proficiencia("Destreza"),
+                  Proficiencia("Constituição"),
+                  Proficiencia("Inteligência"),
+                  Proficiencia("Sabedoria"),
+                  Proficiencia("Carisma"),
+                  SizedBox(height: 20),
+                  Text("TESTES DE RESISTÊNCIA", style: TextStyle(fontSize: 25))
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  Proficiencia("Acrobacia (Des)"),
+                  Proficiencia("Adestrar Animais (Sab)"),
+                  Proficiencia("Arcanismo (Int)"),
+                  Proficiencia("Atletismo (For)"),
+                  Proficiencia("Enganação (Car)"),
+                  Proficiencia("Furtividade (Des)"),
+                  Proficiencia("História    (Int)"),
+                  Proficiencia("Intimidação (Car)"),
+                  Proficiencia("Intuição (Sab)"),
+                  Proficiencia("Investigação (Int)"),
+                  Proficiencia("Medicina (Sab)"),
+                  Proficiencia("Natureza (Int)"),
+                  Proficiencia("Percepção (Sab)"),
+                  Proficiencia("Performance (Car)"),
+                  Proficiencia("Persuasão (Car)"),
+                  Proficiencia("Prestidigitação (Des)"),
+                  Proficiencia("Religião   (Int)"),
+                  Proficiencia("Sobrevivência (Sab)"),
+                  SizedBox(height: 20),
+                  Text("PERÍCIAS", style: TextStyle(fontSize: 25))
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: <Widget>[
+                Expanded(child: TextoCimaFild("CLASSE DE ARMADURA")),
+                Expanded(child: TextoCimaFild("INICIATIVA PERSOGEM")),
+                Expanded(child: TextoCimaFild("DESLOCAMENTO")),
+              ],
+            )
           ],
         ),
       ),
