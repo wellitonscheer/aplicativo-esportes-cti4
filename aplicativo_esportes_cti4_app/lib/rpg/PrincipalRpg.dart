@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:aplicativo_esportes_cti4_app/rpg/CampoMultiCimaTexto.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'allMyWidgets.dart';
@@ -25,6 +28,11 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
+            Image(
+              image: NetworkImage("https://i.pinimg.com/originals/48/cb/53/48cb5349f515f6e59edc2a4de294f439.png"),
+              height: 200,
+              width: 200,
+            ),
             SizedBox(height: 20),
             Text("NOME DO PERSONAGEM", style: TextStyle(fontSize: 25)),
             TextField(
@@ -129,7 +137,16 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
             TextoCampoQuadrado("PP"),
             TextoCampoQuadrado("PE"),
             TextoCampoQuadrado("PO"),
-            TextoCampoQuadrado("PP")
+            TextoCampoQuadrado("PP"),
+            SizedBox(height: 20),
+            CampoMultiCimaTexto("OUTRAS PROFICIÊNCIAS & IDIOMAS"),
+            CampoMultiCimaTexto("ATAQUES & MAGIAS"),
+            CampoMultiCimaTexto("EQUIPAMENTO"),
+            CampoMultiCimaTexto("TRAÇOS DE PERSONALIDADE"),
+            CampoMultiCimaTexto("IDEAIS"),
+            CampoMultiCimaTexto("VÍNCULOS"),
+            CampoMultiCimaTexto("FRAQUEZAS"),
+            CampoMultiCimaTexto("CARACTERÍSTICAS E TRAÇOS")
           ],
         ),
       ),
