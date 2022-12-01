@@ -25,7 +25,8 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            Text("Nome do Personagem", style: TextStyle(fontSize: 25)),
+            SizedBox(height: 20),
+            Text("NOME DO PERSONAGEM", style: TextStyle(fontSize: 25)),
             TextField(
               controller: nomePersonagem,
               decoration: InputDecoration(
@@ -98,7 +99,37 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
                 Expanded(child: TextoCimaFild("INICIATIVA PERSOGEM")),
                 Expanded(child: TextoCimaFild("DESLOCAMENTO")),
               ],
-            )
+            ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  TextoCampo("PONTOS DE VIDA MÁXIMO"),
+                  FildCimaTexto("PONTOS DE VIDA ATUAL")
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 15),
+                  FildCimaTexto("PONTOS DE VIDA TEMPORÁRIOS")
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            TextoCampoQuadrado("PC"),
+            TextoCampoQuadrado("PP"),
+            TextoCampoQuadrado("PE"),
+            TextoCampoQuadrado("PO"),
+            TextoCampoQuadrado("PP")
           ],
         ),
       ),

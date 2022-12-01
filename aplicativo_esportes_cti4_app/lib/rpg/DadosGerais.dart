@@ -32,7 +32,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: classeENivel,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Classe e Nivel",
+                helperText: "CLASSE & NÍVEL",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
@@ -40,7 +40,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: antecedentes,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Antecedentes",
+                helperText: "ANTECEDENTES",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
@@ -48,7 +48,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: nomeJogador,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Nome do Jogador",
+                helperText: "NOME DO JOGADOR",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
@@ -56,7 +56,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: raca,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Raca",
+                helperText: "RAÇA",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
@@ -64,7 +64,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: tendencia,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Tendencia",
+                helperText: "TENDÊNCIA",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
@@ -72,7 +72,7 @@ class _DadosGeraisState extends State<DadosGerais> {
             controller: experiencia,
             decoration: InputDecoration(
                 border: UnderlineInputBorder(),
-                helperText: "Experiencia",
+                helperText: "EXPERIÊNCIA",
                 helperStyle: TextStyle(fontSize: 18)
             ),
           ),
