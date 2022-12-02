@@ -44,9 +44,18 @@ class _LoginState extends State<Login> {
               child: TextField(
                 controller: usuario,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Usuario',
-                  hintText: 'Coloque o seu usuario'),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.black),
+                      borderRadius: BorderRadius.circular(15)
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 3, color: Colors.black),
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                border: OutlineInputBorder(),
+                labelText: "Usuário",
+                labelStyle: TextStyle(color: Colors.black),
+                hintText: 'Coloque o seu usuário'),
               ),
             ),
             Padding(
@@ -56,8 +65,17 @@ class _LoginState extends State<Login> {
                 controller: senhaUsuario,
                 obscureText: true,
                 decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)
+                    ),
                     border: OutlineInputBorder(),
-                    labelText: 'Senha',
+                    labelText: "Senha",
+                    labelStyle: TextStyle(color: Colors.black),
                     hintText: 'Coloque a sua senha'),
               ),
             ),
@@ -84,9 +102,7 @@ class _LoginState extends State<Login> {
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
-
             ),
-
             SizedBox(
               height: 10,
             ),
@@ -100,7 +116,7 @@ class _LoginState extends State<Login> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
               },
-              child: Text("Nao tem uma conta? Clique aqui."),
+              child: Text("Nao tem uma conta? Clique aqui." , style: TextStyle(color: Colors.black)),
 
             )
           ],
