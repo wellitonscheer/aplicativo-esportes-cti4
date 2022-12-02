@@ -116,8 +116,7 @@ class _LoginState extends State<Login> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
               },
-              child: Text("Nao tem uma conta? Clique aqui." , style: TextStyle(color: Colors.black)),
-
+              child: Text("Não tem uma conta? Clique aqui." , style: TextStyle(color: Colors.black)),
             )
           ],
         ),

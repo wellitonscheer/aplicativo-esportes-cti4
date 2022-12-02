@@ -2,6 +2,7 @@ import 'all_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:nice_buttons/nice_buttons.dart';
 
 
 class Cadastro extends StatefulWidget{
@@ -33,36 +34,89 @@ class _CadastroState extends State<Cadastro> {
         children: [
           TextField(
             decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Usuario',
-                hintText: 'Coloque o seu usuario'),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              border: OutlineInputBorder(),
+              labelText: "Usuário",
+              labelStyle: TextStyle(color: Colors.black),
+              hintText: 'Coloque o seu usuário'),
             controller: usuario,
           ),
+          SizedBox(height: 20,),
           TextField(
             decoration: InputDecoration(
-                labelText: "Nome"
-            ),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              border: OutlineInputBorder(),
+              labelText: "Nome",
+              labelStyle: TextStyle(color: Colors.black),
+              hintText: 'Coloque o seu nome'),
             controller: nomeUsuario,
           ),
+          SizedBox(height: 20,),
           TextField(
             decoration: InputDecoration(
-                labelText: "Email"
-            ),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.black),
+                  borderRadius: BorderRadius.circular(15)
+              ),
+              border: OutlineInputBorder(),
+              labelText: "E-mail",
+              labelStyle: TextStyle(color: Colors.black),
+              hintText: 'Coloque o seu e-mail'),
             controller: emailUsuario,
           ),
+          SizedBox(height: 20,),
           TextField(
             decoration: InputDecoration(
-              labelText: "Senha",
-            ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.black),
+                    borderRadius: BorderRadius.circular(15)
+                ),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 3, color: Colors.black),
+                    borderRadius: BorderRadius.circular(15)
+                ),
+                border: OutlineInputBorder(),
+                labelText: "Senha",
+                labelStyle: TextStyle(color: Colors.black),
+                hintText: 'Coloque o seu senha'),
             controller: senhaUsuario,
           ),
-          ElevatedButton(
-              onPressed: (){
-                _cadastroUsuario();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-              },
-              child: Text("Cadastrar")
-          )
+          SizedBox(height: 60,),
+          NiceButtons(
+            startColor: Colors.black,
+            endColor: Colors.black12,
+            borderColor: Colors.black,
+            stretch: false,
+            progress: false,
+            gradientOrientation: GradientOrientation.Horizontal,
+            onTap: (a) {
+              _cadastroUsuario();
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+            },
+            child: Text(
+              'Cadastrar',
+              //global.usuario,
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
         ],
       ),
     );
