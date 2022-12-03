@@ -41,5 +41,5 @@ void enviaFire(Map<String, dynamic> dados) async {
   await FirebaseFirestore.instance
       .collection("ficha_rpg")
       .doc(FirebaseAuth.instance.currentUser!.uid)
-      .set(dados);
+      .update(dados);
 }
