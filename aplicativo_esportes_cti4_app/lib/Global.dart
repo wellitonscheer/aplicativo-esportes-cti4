@@ -27,7 +27,7 @@ Future<Map<String, dynamic>> dadosUsuario() async {
   return dados;
 }
 
-Map<String, dynamic> monta(){
+Map<String, dynamic> monta() {
   var dados = dadosUsuario();
   dados.then((value) {
     value.forEach((key, value) {
@@ -35,4 +35,11 @@ Map<String, dynamic> monta(){
     });
   });
   return dadosUsuarioAtual;
+}
+
+void enviaFire(Map<String, dynamic> dados) async {
+  await FirebaseFirestore.instance
+      .collection("ficha_rpg")
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .set(dados);
 }
