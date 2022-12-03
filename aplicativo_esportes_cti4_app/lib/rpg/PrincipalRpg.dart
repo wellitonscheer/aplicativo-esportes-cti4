@@ -102,9 +102,9 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
             SizedBox(height: 20),
             Row(
               children: <Widget>[
-                Expanded(child: TextoCimaFild("CLASSE DE ARMADURA")),
-                Expanded(child: TextoCimaFild("INICIATIVA PERSOGEM")),
-                Expanded(child: TextoCimaFild("DESLOCAMENTO")),
+                Expanded(child: TextoCimaFild(texto: "CLASSE DE ARMADURA", idFire: "classeArmadura")),
+                Expanded(child: TextoCimaFild(texto: "INICIATIVA PERSOGEM", idFire: "classeIciativaPersonagem")),
+                Expanded(child: TextoCimaFild(texto: "DESLOCAMENTO", idFire: "deslocamento")),
               ],
             ),
             Container(
@@ -114,7 +114,7 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
               child: Column(
                 children: [
                   SizedBox(height: 20),
-                  TextoCampo("PONTOS DE VIDA MÁXIMO"),
+                  TextoCampo(texto: "PONTOS DE VIDA MÁXIMO", idFire: "pontosVidaMaximo",),
                   FildCimaTexto("PONTOS DE VIDA ATUAL")
                 ],
               ),

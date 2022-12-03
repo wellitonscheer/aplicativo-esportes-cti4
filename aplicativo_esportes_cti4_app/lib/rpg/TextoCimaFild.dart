@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'allMyWidgets.dart';
+import '../Global.dart' as global;
 
 class TextoCimaFild extends StatefulWidget {
-  String texto;
-  TextoCimaFild(this.texto);
+  final String texto;
+  final String idFire;
+
+  TextoCimaFild({Key? key, required this.texto, required this.idFire})
+      : super(key: key);
 
   @override
   State<TextoCimaFild> createState() => _TextoCimaFildState();
 }
 
 class _TextoCimaFildState extends State<TextoCimaFild> {
+  var control;
 
-  TextEditingController control = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    control = TextEditingController(text: global.dadosUsuarioAtual[widget.idFire]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +33,9 @@ class _TextoCimaFildState extends State<TextoCimaFild> {
         children: [
           Text(widget.texto),
           TextField(
+            onChanged: (value) {
+              global.enviaFire({widget.idFire: value});
+            },
             style: TextStyle(fontSize: 17),
             controller: control,
             textAlign: TextAlign.center,
