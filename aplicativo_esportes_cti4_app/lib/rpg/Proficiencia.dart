@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'allMyWidgets.dart';
+import '../Global.dart' as global;
 
 class Proficiencia extends StatefulWidget {
-  String profici;
-  Proficiencia(this.profici);
+  final String profici;
+  final String idFire;
 
+  Proficiencia({Key? key, required this.profici, required this.idFire})
+      : super(key: key);
   @override
   State<Proficiencia> createState() => _ProficienciaState();
 }
 
 class _ProficienciaState extends State<Proficiencia> {
-
   bool check = false;
-  TextEditingController pro = TextEditingController();
+  var pro;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    pro = TextEditingController(text: global.dadosUsuarioAtual[widget.idFire]);
+    var checado = global.dadosUsuarioAtual["${widget.idFire}Checado"];
+    if (checado != null) {
+      if(checado == "false"){
+        check = false;
+      }
+      else{
+        check = true;
+      }
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +44,21 @@ class _ProficienciaState extends State<Proficiencia> {
                 setState(() {
                   check = value!;
                 });
+                global.enviaFire({"${widget.idFire}Checado": value.toString()});
               },
             ),
           ),
           Expanded(
               child: TextField(
-                controller: pro,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20),
-              )
-          ),
+            controller: pro,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20),
+            onChanged: (value) {
+              global.enviaFire({widget.idFire: value});
+            },
+          )),
           SizedBox(width: 10),
-          Expanded(
-              child: Text(widget.profici, style: TextStyle(fontSize: 19))
-          ),
+          Expanded(child: Text(widget.profici, style: TextStyle(fontSize: 19))),
         ],
       ),
     );

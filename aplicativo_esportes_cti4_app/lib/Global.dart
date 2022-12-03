@@ -48,6 +48,8 @@ void enviaFire(Map<String, dynamic> dados) async {
       .update(dados);
   var a = monta();
 }
+
+
 //
 // Future<String> zeraDados() async{
 //   var a = await zeraDadosAsync();
