@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../Global.dart' as global;
 
 class Atributos extends StatefulWidget {
   final String titulo;
@@ -55,10 +56,11 @@ class _AtributosState extends State<Atributos> {
                   TextField(
                     textAlign: TextAlign.center,
                     readOnly: true,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
-                      labelText: widget.titulo,
-                    ),
+                    decoration: global.TextFildEstilo,
+                    // decoration: InputDecoration(
+                    //   border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
+                    //   labelText: widget.titulo,
+                    // ),
                     controller: edit,
                     style: TextStyle(fontSize: 25),
                   ),
