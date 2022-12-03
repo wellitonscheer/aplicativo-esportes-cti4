@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'allMyWidgets.dart';
+import '../Global.dart' as global;
 
 class CampoTexto extends StatefulWidget {
-  String texto;
 
-  CampoTexto(this.texto);
+  final String texto;
+  final String idFire;
+
+  CampoTexto({
+    Key? key,
+    required this.texto,
+    required this.idFire
+  }) : super(key: key);
 
   @override
   State<CampoTexto> createState() => _CampoTextoState();
@@ -13,7 +18,14 @@ class CampoTexto extends StatefulWidget {
 
 class _CampoTextoState extends State<CampoTexto> {
 
-  TextEditingController percepcao = TextEditingController();
+  var percepcao;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    percepcao = TextEditingController(text: global.dadosUsuarioAtual[widget.idFire]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +45,9 @@ class _CampoTextoState extends State<CampoTexto> {
               ),
               controller: percepcao,
               style: TextStyle(fontSize: 25),
+              onChanged: (value) {
+                global.enviaFire({widget.idFire: value});
+              },
             ),
           )),
           SizedBox(width: 40),

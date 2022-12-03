@@ -47,9 +47,9 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
             Atributos(titulo: "INTELIGÊNCIA", idFire: "attInteligencia"),
             Atributos(titulo: "SABEDORIA", idFire: "attSabedoria"),
             Atributos(titulo: "CARISMA", idFire: "attCarisma"),
-            CampoTexto("PERCEPÇÃO"),
-            CampoTexto("INSPIRAÇÃO"),
-            CampoTexto("BONUS DE PROFICIÊNCIA"),
+            CampoTexto(texto: "PERCEPÇÃO", idFire: "percpcao",),
+            CampoTexto(texto: "INSPIRAÇÃO", idFire: "inspiracao"),
+            CampoTexto(texto: "BONUS DE PROFICIÊNCIA", idFire: "bonusProficiencia"),
             Container(
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
