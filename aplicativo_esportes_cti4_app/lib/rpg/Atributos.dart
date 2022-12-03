@@ -69,10 +69,13 @@ class _AtributosState extends State<Atributos> {
                     height: 45,
                     child: TextField(
                       textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(60))),
-                        //labelText: widget.titulo,
+                      decoration: global.TextFildEstilo.copyWith(
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(90)),
                       ),
+                      // InputDecoration(
+                      //   border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(60))),
+                      //   //labelText: widget.titulo,
+                      // ),
                       controller: modificador,
                       style: TextStyle(fontSize: 30),
                     ),

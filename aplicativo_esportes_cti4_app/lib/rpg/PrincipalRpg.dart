@@ -1,8 +1,6 @@
-import 'dart:io';
-
+import '../Global.dart' as global;
 import 'package:aplicativo_esportes_cti4_app/rpg/CampoMultiCimaTexto.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'allMyWidgets.dart';
 
 class PrincipalRpg extends StatefulWidget {
