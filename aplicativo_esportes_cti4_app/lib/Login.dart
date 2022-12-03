@@ -12,7 +12,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
+  //var desloga = global.desloga();
+  //var zera = global.zeraDados();
   final _auten = FirebaseAuth.instance;
   TextEditingController email = TextEditingController();
   TextEditingController senhaEmail = TextEditingController();
@@ -44,18 +45,17 @@ class _LoginState extends State<Login> {
               child: TextField(
                 controller: email,
                 decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 3, color: Colors.black),
-                      borderRadius: BorderRadius.circular(15)
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 3, color: Colors.black),
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                border: OutlineInputBorder(),
-                labelText: "E-mail",
-                labelStyle: TextStyle(color: Colors.black),
-                hintText: 'Coloque o seu e-mail'),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)),
+                    border: OutlineInputBorder(),
+                    labelText: "E-mail",
+                    labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Coloque o seu e-mail'),
               ),
             ),
             Padding(
@@ -65,19 +65,17 @@ class _LoginState extends State<Login> {
                 controller: senhaEmail,
                 obscureText: true,
                 decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 3, color: Colors.black),
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 3, color: Colors.black),
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  border: OutlineInputBorder(),
-                  labelText: "Senha",
-                  labelStyle: TextStyle(color: Colors.black),
-                  hintText: 'Coloque a sua senha'
-                ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 3, color: Colors.black),
+                        borderRadius: BorderRadius.circular(15)),
+                    border: OutlineInputBorder(),
+                    labelText: "Senha",
+                    labelStyle: TextStyle(color: Colors.black),
+                    hintText: 'Coloque a sua senha'),
               ),
             ),
             SizedBox(
@@ -86,7 +84,8 @@ class _LoginState extends State<Login> {
             Container(
               height: 50,
               width: 250,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
               child: NiceButtons(
                 startColor: Colors.black,
                 endColor: Colors.black12,
@@ -94,20 +93,23 @@ class _LoginState extends State<Login> {
                 stretch: false,
                 progress: false,
                 gradientOrientation: GradientOrientation.Horizontal,
-                onTap: (a) async{
+                onTap: (a) async {
                   try {
-                    await _auten.signInWithEmailAndPassword(email: email.text, password: senhaEmail.text);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Todos()));
-                  } catch (erro){
+                    await _auten.signInWithEmailAndPassword(
+                        email: email.text, password: senhaEmail.text);
+                    Map<String, dynamic> dadosUsuario = global.monta();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Todos()));
+                  } catch (erro) {
                     showDialog<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("Erro ao Logar"),
-                          content: Text("Verifique a sua usuario e senha e tente novamente"),
-                        );
-                      }
-                  );
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Erro ao Logar"),
+                            content: Text(
+                                "Verifique a sua usuario e senha e tente novamente"),
+                          );
+                        });
                   }
                 },
                 child: Text(
@@ -121,16 +123,16 @@ class _LoginState extends State<Login> {
               height: 10,
             ),
             TextButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith((states){
-                      Colors.black;
-                    }
-                    )
-                ),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                Colors.black;
+              })),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Cadastro()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Cadastro()));
               },
-              child: Text("Não tem uma conta? Clique aqui." , style: TextStyle(color: Colors.black)),
+              child: Text("Não tem uma conta? Clique aqui.",
+                  style: TextStyle(color: Colors.black)),
             )
           ],
         ),

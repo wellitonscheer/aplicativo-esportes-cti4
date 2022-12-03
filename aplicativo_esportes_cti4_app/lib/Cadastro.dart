@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:nice_buttons/nice_buttons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'Global.dart' as global;
 
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);
@@ -11,8 +12,10 @@ class Cadastro extends StatefulWidget {
   State<Cadastro> createState() => _CadastroState();
 }
 
-class _CadastroState extends State<Cadastro> {
-  final _auten = FirebaseAuth.instance;
+class _CadastroState extends State<Cadastro>{
+
+  //var desloga = global.desloga();
+  //var zera = global.zeraDados();
   TextEditingController usuario = TextEditingController();
   TextEditingController nomeUsuario = TextEditingController();
   TextEditingController emailUsuario = TextEditingController();
@@ -27,12 +30,16 @@ class _CadastroState extends State<Cadastro> {
     };
     var email = emailUsuario.text;
     var senha = senhaUsuario.text;
-    UserCredential credential = await _auten.createUserWithEmailAndPassword(
+    UserCredential credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email, password: senha);
     await FirebaseFirestore.instance
         .collection("usuarios")
         .doc(credential.user!.uid)
         .set(montaUsuario);
+    await FirebaseFirestore.instance
+        .collection("ficha_rpg")
+        .doc(credential.user!.uid)
+        .set({"uid": credential.user!.uid});
   }
 
   @override

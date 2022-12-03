@@ -12,9 +12,9 @@ class PrincipalRpg extends StatefulWidget {
 
 class _PrincipalRpgState extends State<PrincipalRpg> {
 
+  //Map<String, dynamic> dadosUsuario = global.monta();
   TextEditingController attForca = TextEditingController();
-  TextEditingController nomePersonagem = TextEditingController();
-  Map<String, dynamic> dadosUsuario = global.monta();
+  TextEditingController nomePersonagem = TextEditingController(text: global.dadosUsuarioAtual["nomePersonagem"]);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
               controller: nomePersonagem,
               decoration: InputDecoration(border: OutlineInputBorder()),
               onChanged: (value) {
-                global.enviaFire({"nomePersonagem": nomePersonagem.text});
+                global.enviaFire({"nomePersonagem": value, "bbb":"bbb"});
               },
             ),
             DadosGerais(),

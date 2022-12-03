@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 String usuario = "";
 Map<String, dynamic> dadosUsuarioAtual = {};
+//var a = monta();
 
 InputDecoration TextFildEstilo = InputDecoration(
   focusedBorder: OutlineInputBorder(
@@ -24,16 +25,19 @@ Future<Map<String, dynamic>> dadosUsuario() async {
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .get();
   Map<String, dynamic> dados = (snapshot.data() as Map<String, dynamic>);
+  //var a = monta();
   return dados;
 }
 
 Map<String, dynamic> monta() {
   var dados = dadosUsuario();
+  dadosUsuarioAtual = {};
   dados.then((value) {
     value.forEach((key, value) {
       dadosUsuarioAtual[key] = value;
     });
   });
+  //print(dadosUsuarioAtual);
   return dadosUsuarioAtual;
 }
 
@@ -42,4 +46,18 @@ void enviaFire(Map<String, dynamic> dados) async {
       .collection("ficha_rpg")
       .doc(FirebaseAuth.instance.currentUser!.uid)
       .update(dados);
+  var a = monta();
 }
+//
+// Future<String> zeraDados() async{
+//   var a = await zeraDadosAsync();
+//   return "sucesso";
+// }
+//
+// Future<void> zeraDadosAsync() async{
+//   dadosUsuarioAtual = {};
+// }
+//
+// Future<void> desloga() async{
+//   await FirebaseAuth.instance.signOut();
+// }

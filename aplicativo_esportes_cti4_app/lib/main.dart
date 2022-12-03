@@ -1,3 +1,4 @@
+import 'Global.dart' as global;
 import 'all_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,6 +7,9 @@ void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  //var desloga = global.desloga();
+  //var zera = global.zeraDados();
+  // Map<String, dynamic> dadosUsuario = global.monta();
 
   runApp(
     MaterialApp(
@@ -23,6 +27,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
