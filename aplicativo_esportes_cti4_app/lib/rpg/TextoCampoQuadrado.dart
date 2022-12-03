@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'allMyWidgets.dart';
+import '../Global.dart' as global;
 
 class TextoCampoQuadrado extends StatefulWidget {
-  String texto;
-  TextoCampoQuadrado(this.texto);
+  final String texto;
+  final String idFire;
+
+  TextoCampoQuadrado({Key? key, required this.texto, required this.idFire})
+      : super(key: key);
 
   @override
   State<TextoCampoQuadrado> createState() => _TextoCampoQuadradoState();
 }
 
 class _TextoCampoQuadradoState extends State<TextoCampoQuadrado> {
+  var contro;
 
-  TextEditingController contro = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    contro =
+        TextEditingController(text: global.dadosUsuarioAtual[widget.idFire]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,27 +29,25 @@ class _TextoCampoQuadradoState extends State<TextoCampoQuadrado> {
       margin: EdgeInsets.all(5),
       child: Row(
         children: <Widget>[
+          Expanded(child: Text(widget.texto, style: TextStyle(fontSize: 19))),
           Expanded(
-            child: Text(widget.texto, style: TextStyle(fontSize: 19))
-          ),
-          Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
-              ),
-              controller: contro,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
-            )
-          ),
-          Expanded(
-              child: Text("")
-          ),
-          Expanded(
-              child: Text("")
-          ),
+              child: TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(2))),
+            ),
+            controller: contro,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20),
+            onChanged: (value) {
+              global.enviaFire({widget.idFire: value});
+            },
+          )),
+          Expanded(child: Text("")),
+          Expanded(child: Text("")),
         ],
       ),
-    );;
+    );
+    ;
   }
 }
