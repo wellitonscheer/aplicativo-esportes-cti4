@@ -19,8 +19,23 @@ class Atributos extends StatefulWidget {
 class _AtributosState extends State<Atributos> {
 
   int _valor = 0;
-  TextEditingController edit = TextEditingController(text: "0");
-  TextEditingController modificador = TextEditingController();
+
+  var edit;
+  var modificador;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    String modificadorTexto = "${global.dadosUsuarioAtual["${widget.idFire}2"]}";
+    String editTexto = "${global.dadosUsuarioAtual["${widget.idFire}"]}";
+    modificador = TextEditingController(text: modificadorTexto); //global.dadosUsuarioAtual["${widget.idFire}2"].toString()
+    edit = TextEditingController(text: editTexto); // global.dadosUsuarioAtual["${widget.idFire}"].toString()
+    //int valor = int.parse(global.dadosUsuarioAtual[widget.idFire]);
+    //_valor + valor;
+    print(global.dadosUsuarioAtual);
+    //print(texto);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +58,7 @@ class _AtributosState extends State<Atributos> {
                   onPressed: (){
                     _valor--;
                     edit.text = '$_valor';
+                    global.enviaFire({widget.idFire: '$_valor'});
                   },
                   child: Icon(Icons.expand_more)
               ),
@@ -56,7 +72,9 @@ class _AtributosState extends State<Atributos> {
                   TextField(
                     textAlign: TextAlign.center,
                     readOnly: true,
-                    decoration: global.TextFildEstilo,
+                    decoration: global.TextFildEstilo.copyWith(
+                      labelText: widget.titulo,
+                    ),
                     // decoration: InputDecoration(
                     //   border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
                     //   labelText: widget.titulo,
@@ -78,6 +96,9 @@ class _AtributosState extends State<Atributos> {
                       // ),
                       controller: modificador,
                       style: TextStyle(fontSize: 30),
+                      onChanged: (value) {
+                        global.enviaFire({"${widget.idFire}2": value});
+                      },
                     ),
                   )
                 ],
@@ -97,6 +118,7 @@ class _AtributosState extends State<Atributos> {
                 onPressed: (){
                   _valor++;
                   edit.text = '$_valor';
+                  global.enviaFire({widget.idFire: '$_valor'});
                 },
                 child: Icon(Icons.expand_less)
               ),

@@ -36,10 +36,25 @@ class _CadastroState extends State<Cadastro>{
         .collection("usuarios")
         .doc(credential.user!.uid)
         .set(montaUsuario);
+    var montaFicha = {
+      "attForca": "0",
+      "attForca2": "0",
+      "attDestreza": "0",
+      "attDestreza2": "0",
+      "attConstituicao": "0",
+      "attConstituicao2": "0",
+      "attInteligencia": "0",
+      "attInteligencia2": "0",
+      "attSabedoria": "0",
+      "attSabedoria2": "0",
+      "attCarisma": "0",
+      "attCarisma2": "0",
+      "uid": credential.user!.uid
+    };
     await FirebaseFirestore.instance
         .collection("ficha_rpg")
         .doc(credential.user!.uid)
-        .set({"uid": credential.user!.uid});
+        .set(montaFicha);
   }
 
   @override
