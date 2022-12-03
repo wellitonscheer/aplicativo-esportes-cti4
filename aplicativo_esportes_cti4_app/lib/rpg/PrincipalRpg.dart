@@ -11,10 +11,8 @@ class PrincipalRpg extends StatefulWidget {
 }
 
 class _PrincipalRpgState extends State<PrincipalRpg> {
-
   TextEditingController attForca = TextEditingController();
   TextEditingController nomePersonagem = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +33,11 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
             Text("NOME DO PERSONAGEM", style: TextStyle(fontSize: 25)),
             TextField(
               controller: nomePersonagem,
-              decoration: InputDecoration(
-                border: OutlineInputBorder()
-              )
+              decoration: InputDecoration(border: OutlineInputBorder()),
+              onChanged: (value) {
+                var dados = global.monta();
+                print(dados["aaa"]);
+              },
             ),
             DadosGerais(),
             Atributos(titulo: "FORÇA", idFire: "attForca"),

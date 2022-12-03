@@ -65,18 +65,19 @@ class _LoginState extends State<Login> {
                 controller: senhaEmail,
                 obscureText: true,
                 decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: Colors.black),
-                        borderRadius: BorderRadius.circular(15)
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 3, color: Colors.black),
-                        borderRadius: BorderRadius.circular(15)
-                    ),
-                    border: OutlineInputBorder(),
-                    labelText: "Senha",
-                    labelStyle: TextStyle(color: Colors.black),
-                    hintText: 'Coloque a sua senha'),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.black),
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 3, color: Colors.black),
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                  border: OutlineInputBorder(),
+                  labelText: "Senha",
+                  labelStyle: TextStyle(color: Colors.black),
+                  hintText: 'Coloque a sua senha'
+                ),
               ),
             ),
             SizedBox(
