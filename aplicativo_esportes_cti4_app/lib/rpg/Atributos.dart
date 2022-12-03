@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Atributos extends StatefulWidget {
-  String titulo;
+  final String titulo;
+  final String idFire;
 
-  Atributos(this.titulo);
+  Atributos({
+    Key? key,
+    required this.titulo,
+    required this.idFire
+  }) : super(key: key);
 
   @override
   State<Atributos> createState() => _AtributosState();

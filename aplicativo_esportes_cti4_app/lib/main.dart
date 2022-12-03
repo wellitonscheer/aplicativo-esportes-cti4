@@ -34,11 +34,15 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            ElevatedButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-                },
-                child: Text("Entrar"))
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+              }, // Image tapped
+              child: Image.asset(
+                'assets/logoNossoCompleto.jpeg',
+                fit: BoxFit.cover, // Fixes border issues
+              ),
+            )
           ],
         ),
       ),
