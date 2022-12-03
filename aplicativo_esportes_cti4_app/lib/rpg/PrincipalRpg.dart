@@ -114,8 +114,8 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
               child: Column(
                 children: [
                   SizedBox(height: 20),
-                  TextoCampo(texto: "PONTOS DE VIDA MÁXIMO", idFire: "pontosVidaMaximo",),
-                  FildCimaTexto("PONTOS DE VIDA ATUAL")
+                  TextoCampo(texto: "PONTOS DE VIDA MÁXIMO", idFire: "pontosVidaMaximo"),
+                  FildCimaTexto(texto: "PONTOS DE VIDA ATUAL", idFire: "pontosVidaAtual")
                 ],
               ),
             ),
@@ -127,7 +127,7 @@ class _PrincipalRpgState extends State<PrincipalRpg> {
               child: Column(
                 children: [
                   SizedBox(height: 15),
-                  FildCimaTexto("PONTOS DE VIDA TEMPORÁRIOS")
+                  FildCimaTexto(texto: "PONTOS DE VIDA TEMPORÁRIOS", idFire: "pontosVidaTemporarios")
                 ],
               ),
             ),
