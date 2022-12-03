@@ -37,7 +37,7 @@ class _AtributosState extends State<Atributos> {
               child: ElevatedButton(
                   style: ButtonStyle(
                     iconSize: MaterialStateProperty.all(40),
-                    padding: MaterialStateProperty.all(EdgeInsets.all(5)),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(5)), backgroundColor: MaterialStateProperty.all(Colors.black)
                   ),
                   onPressed: (){
                     _valor--;
@@ -82,16 +82,18 @@ class _AtributosState extends State<Atributos> {
           Expanded(
             child: SizedBox(
               height: 120,
-              child: ElevatedButton(
-                  style: ButtonStyle(
-                      iconSize: MaterialStateProperty.all(40),
-                      padding: MaterialStateProperty.all(EdgeInsets.all(5))
-                  ),
-                  onPressed: (){
-                    _valor++;
-                    edit.text = '$_valor';
-                  },
-                  child: Icon(Icons.expand_less)
+              child:
+              ElevatedButton(
+                style: ButtonStyle(
+                  iconSize: MaterialStateProperty.all(40),
+                  padding: MaterialStateProperty.all(EdgeInsets.all(5)),
+                  backgroundColor: MaterialStateProperty.all(Colors.black)
+                ),
+                onPressed: (){
+                  _valor++;
+                  edit.text = '$_valor';
+                },
+                child: Icon(Icons.expand_less)
               ),
             ),
           ),
