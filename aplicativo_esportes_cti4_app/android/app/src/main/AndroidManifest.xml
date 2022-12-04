@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aplicativo_esportes_cti4_app">
    <application
-        android:label="aplicativo_esportes_cti4_app"
+        android:label="sports"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

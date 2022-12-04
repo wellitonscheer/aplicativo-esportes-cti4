@@ -12,8 +12,7 @@ class Cadastro extends StatefulWidget {
   State<Cadastro> createState() => _CadastroState();
 }
 
-class _CadastroState extends State<Cadastro>{
-
+class _CadastroState extends State<Cadastro> {
   //var desloga = global.desloga();
   //var zera = global.zeraDados();
   TextEditingController usuario = TextEditingController();
@@ -30,8 +29,8 @@ class _CadastroState extends State<Cadastro>{
     };
     var email = emailUsuario.text;
     var senha = senhaUsuario.text;
-    UserCredential credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email, password: senha);
+    UserCredential credential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: senha);
     await FirebaseFirestore.instance
         .collection("usuarios")
         .doc(credential.user!.uid)
